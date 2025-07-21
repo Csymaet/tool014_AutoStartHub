@@ -7,15 +7,10 @@ using AutoStartHub.Models;
 
 namespace AutoStartHub.Services;
 
-public class UnityProjectService
+public class UnityProjectService(LogManager logger)
 {
-    private readonly LogManager _logger;
-    
-    public UnityProjectService(LogManager logger)
-    {
-        _logger = logger;
-    }
-    
+    private readonly LogManager _logger = logger;
+
     public async Task StartAsync(UnityProjectConfig projectConfig)
     {
         try

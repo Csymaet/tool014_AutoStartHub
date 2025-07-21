@@ -7,15 +7,10 @@ using AutoStartHub.Models;
 
 namespace AutoStartHub.Services;
 
-public class OtherProjectService
+public class OtherProjectService(LogManager logger)
 {
-    private readonly LogManager _logger;
-    
-    public OtherProjectService(LogManager logger)
-    {
-        _logger = logger;
-    }
-    
+    private readonly LogManager _logger = logger;
+
     public async Task StartAsync(OtherProjectConfig project)
     {
         try
@@ -54,7 +49,7 @@ public class OtherProjectService
         return true;
     }
     
-    private ProcessStartInfo CreateProjectProcess(OtherProjectConfig project)
+    private static ProcessStartInfo CreateProjectProcess(OtherProjectConfig project)
     {
         return new ProcessStartInfo
         {

@@ -6,7 +6,7 @@
   // 虚拟机配置
   "VirtualMachine": {
     "Enabled": true,              // 是否启用虚拟机启动
-    "Name": "Windows10",          // 虚拟机名称（在VirtualBox中的名称）
+    "Name": "arch",          // 虚拟机名称（在VirtualBox中的名称）
     "Type": "VirtualBox",         // 虚拟机类型（目前只支持VirtualBox）
     "Headless": false,            // 是否以无头模式启动（true=后台运行，false=显示界面）
     "VBoxManagePath": "C:\\Program Files\\Oracle\\VirtualBox\\VBoxManage.exe", // VBoxManage.exe的完整路径
@@ -19,7 +19,7 @@
       "Enabled": true,            // 是否启用此Unity项目
       "Name": "Match2023",        // 项目显示名称
       "ProjectPath": "C:\\Users\\GM19\\myfile\\Projects\\match2023", // Unity项目文件夹路径
-      "UnityVersion": "2022.3.0f1", // Unity版本（用于查找对应的Unity编辑器）
+      "UnityVersion": "2022.3.37f1", // Unity版本（用于查找对应的Unity编辑器）
       "AdditionalArgs": "",       // 启动Unity时的额外参数
       "StartupDelayMs": 3000      // 启动此项目后的等待时间（毫秒）
     },
@@ -54,15 +54,15 @@
       "Name": "Trae AI",          // 程序显示名称
       "ExecutablePath": "C:\\Program Files\\Trae\\Trae.exe", // 可执行文件完整路径
       "Arguments": "",            // 启动参数
-      "WorkingDirectory": "C:\\Users\\GM19\\myfile\\Projects", // 工作目录
+      "WorkingDirectory": "C:\\Users\\GM19\\myfile\\Projects\\match2023", // 工作目录
       "DelayMs": 2000             // 启动此程序后的等待时间（毫秒）
     },
     {
       "Enabled": false,           // VS Code示例（已禁用）
       "Name": "Visual Studio Code",
       "ExecutablePath": "C:\\Users\\GM19\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe",
-      "Arguments": "C:\\Users\\GM19\\myfile\\Projects", // 打开指定文件夹
-      "WorkingDirectory": "C:\\Users\\GM19\\myfile\\Projects",
+      "Arguments": "C:\\Users\\GM19\\myfile\\Projects\\match2023", // 打开指定文件夹
+      "WorkingDirectory": "C:\\Users\\GM19\\myfile\\Projects\\match2023",
       "DelayMs": 1000
     }
   ]

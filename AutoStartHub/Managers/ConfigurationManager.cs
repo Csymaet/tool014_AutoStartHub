@@ -5,17 +5,11 @@ using AutoStartHub.Models;
 
 namespace AutoStartHub.Managers;
 
-public class ConfigurationManager
+public class ConfigurationManager(string configPath = "startup-config.json", LogManager? logger = null)
 {
-    private readonly string _configPath;
-    private readonly LogManager _logger;
-    
-    public ConfigurationManager(string configPath = "startup-config.json", LogManager? logger = null)
-    {
-        _configPath = configPath;
-        _logger = logger ?? new LogManager();
-    }
-    
+    private readonly string _configPath = configPath;
+    private readonly LogManager _logger = logger ?? new LogManager();
+
     public StartupConfig LoadConfig()
     {
         try
@@ -58,7 +52,7 @@ public class ConfigurationManager
         }
     }
     
-    private StartupConfig CreateDefaultConfig()
+    private static StartupConfig CreateDefaultConfig()
     {
         return new StartupConfig
         {
@@ -67,7 +61,7 @@ public class ConfigurationManager
             VirtualMachine = new VirtualMachineConfig
             {
                 Enabled = true,
-                Name = "Windows10",
+                Name = "arch",
                 Type = "VirtualBox",
                 Headless = false,
                 VBoxManagePath = @"C:\Program Files\Oracle\VirtualBox\VBoxManage.exe",
@@ -79,9 +73,18 @@ public class ConfigurationManager
                     Enabled = true,
                     Name = "Match2023",
                     ProjectPath = @"C:\Users\GM19\myfile\Projects\match2023",
-                    UnityVersion = "2022.3.0f1",
+                    UnityVersion = "2022.3.37f1",
                     AdditionalArgs = "",
                     StartupDelayMs = 3000
+                },
+                new UnityProjectConfig  // 新增：添加第二个Unity项目示例
+                {
+                    Enabled = false,
+                    Name = "MyGame",
+                    ProjectPath = @"C:\Users\GM19\myfile\Projects\MyGame",
+                    UnityVersion = "2023.2.0f1",
+                    AdditionalArgs = "-batchmode -quit",
+                    StartupDelayMs = 2000
                 }
             ],
             Browser = new BrowserConfig
@@ -104,14 +107,23 @@ public class ConfigurationManager
                     Name = "Trae AI",
                     ExecutablePath = @"C:\Program Files\Trae\Trae.exe",
                     Arguments = "",
-                    WorkingDirectory = @"C:\Users\GM19\myfile\Projects",
+                    WorkingDirectory = @"C:\Users\GM19\myfile\Projects\match2023",  // 已更新：更具体的工作目录
                     DelayMs = 2000
+                },
+                new OtherProjectConfig  // 新增：添加VS Code示例
+                {
+                    Enabled = false,
+                    Name = "Visual Studio Code",
+                    ExecutablePath = @"C:\Users\GM19\AppData\Local\Programs\Microsoft VS Code\Code.exe",
+                    Arguments = @"C:\Users\GM19\myfile\Projects\match2023",
+                    WorkingDirectory = @"C:\Users\GM19\myfile\Projects\match2023",
+                    DelayMs = 1000
                 }
             ]
         };
     }
     
-    private JsonSerializerOptions GetJsonOptions()
+    private static JsonSerializerOptions GetJsonOptions()
     {
         return new JsonSerializerOptions
         {
@@ -120,7 +132,7 @@ public class ConfigurationManager
         };
     }
     
-    private JsonSerializerOptions GetJsonWriteOptions()
+    private static JsonSerializerOptions GetJsonWriteOptions()
     {
         return new JsonSerializerOptions
         {

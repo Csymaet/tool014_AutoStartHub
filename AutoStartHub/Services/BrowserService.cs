@@ -8,15 +8,10 @@ using AutoStartHub.Models;
 
 namespace AutoStartHub.Services;
 
-public class BrowserService
+public class BrowserService(LogManager logger)
 {
-    private readonly LogManager _logger;
-    
-    public BrowserService(LogManager logger)
-    {
-        _logger = logger;
-    }
-    
+    private readonly LogManager _logger = logger;
+
     public async Task StartAsync(BrowserConfig browserConfig)
     {
         if (browserConfig.Urls.Length == 0)

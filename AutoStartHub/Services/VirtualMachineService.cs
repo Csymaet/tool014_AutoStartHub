@@ -7,15 +7,10 @@ using AutoStartHub.Models;
 
 namespace AutoStartHub.Services;
 
-public class VirtualMachineService
+public class VirtualMachineService(LogManager logger)
 {
-    private readonly LogManager _logger;
-    
-    public VirtualMachineService(LogManager logger)
-    {
-        _logger = logger;
-    }
-    
+    private readonly LogManager _logger = logger;
+
     public async Task StartAsync(VirtualMachineConfig vmConfig)
     {
         try
@@ -54,7 +49,7 @@ public class VirtualMachineService
         return true;
     }
     
-    private Process? CreateVirtualMachineProcess(VirtualMachineConfig vmConfig)
+    private static Process? CreateVirtualMachineProcess(VirtualMachineConfig vmConfig)
     {
         var startInfo = new ProcessStartInfo
         {

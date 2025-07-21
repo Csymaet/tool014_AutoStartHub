@@ -6,8 +6,16 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <AssemblyTitle>AutoStartHub</AssemblyTitle>
-    <AssemblyDescription>开机自动启动虚拟机、Unity项目、浏览器等程序的管理工具</AssemblyDescription>
+    <AssemblyDescription>自动启动项目管理工具</AssemblyDescription>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
     <FileVersion>1.0.0.0</FileVersion>
+    
+    <!-- 发布配置 -->
+    <PublishSingleFile>true</PublishSingleFile>
+    <SelfContained>false</SelfContained>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <PublishTrimmed>false</PublishTrimmed>
+    <TrimMode>link</TrimMode>
   </PropertyGroup>
+
 </Project>
