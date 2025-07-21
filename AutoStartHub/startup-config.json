@@ -1,0 +1,69 @@
+{
+  // 全局设置
+  "AutoExit": false,              // 是否在启动完成后自动退出程序
+  "AutoExitDelayMs": 3000,        // 自动退出前的延迟时间（毫秒）
+  
+  // 虚拟机配置
+  "VirtualMachine": {
+    "Enabled": true,              // 是否启用虚拟机启动
+    "Name": "Windows10",          // 虚拟机名称（在VirtualBox中的名称）
+    "Type": "VirtualBox",         // 虚拟机类型（目前只支持VirtualBox）
+    "Headless": false,            // 是否以无头模式启动（true=后台运行，false=显示界面）
+    "VBoxManagePath": "C:\\Program Files\\Oracle\\VirtualBox\\VBoxManage.exe", // VBoxManage.exe的完整路径
+    "StartupDelayMs": 5000        // 启动虚拟机后的等待时间（毫秒）
+  },
+  
+  // Unity项目配置（支持多个项目）
+  "UnityProjects": [
+    {
+      "Enabled": true,            // 是否启用此Unity项目
+      "Name": "Match2023",        // 项目显示名称
+      "ProjectPath": "C:\\Users\\GM19\\myfile\\Projects\\match2023", // Unity项目文件夹路径
+      "UnityVersion": "2022.3.0f1", // Unity版本（用于查找对应的Unity编辑器）
+      "AdditionalArgs": "",       // 启动Unity时的额外参数
+      "StartupDelayMs": 3000      // 启动此项目后的等待时间（毫秒）
+    },
+    {
+      "Enabled": false,           // 已禁用的项目示例
+      "Name": "MyGame",
+      "ProjectPath": "C:\\Users\\GM19\\myfile\\Projects\\MyGame",
+      "UnityVersion": "2023.2.0f1",
+      "AdditionalArgs": "-batchmode -quit", // 批处理模式启动并退出
+      "StartupDelayMs": 2000
+    }
+  ],
+  
+  // 浏览器配置
+  "Browser": {
+    "Enabled": true,              // 是否启用浏览器启动
+    "BrowserType": "Firefox",     // 浏览器类型（Firefox/Chrome/Edge）
+    "FirefoxPath": "C:\\Program Files\\Mozilla Firefox\\firefox.exe", // Firefox可执行文件路径
+    "Urls": [                     // 要打开的网址列表
+      "https://github.com",       // GitHub
+      "https://unity.com",        // Unity官网
+      "https://stackoverflow.com", // Stack Overflow
+      "https://docs.microsoft.com" // Microsoft文档
+    ],
+    "TabDelayMs": 500            // 打开每个标签页之间的延迟（毫秒）
+  },
+  
+  // 其他程序配置（支持任意可执行程序）
+  "OtherProjects": [
+    {
+      "Enabled": false,           // 是否启用此程序
+      "Name": "Trae AI",          // 程序显示名称
+      "ExecutablePath": "C:\\Program Files\\Trae\\Trae.exe", // 可执行文件完整路径
+      "Arguments": "",            // 启动参数
+      "WorkingDirectory": "C:\\Users\\GM19\\myfile\\Projects", // 工作目录
+      "DelayMs": 2000             // 启动此程序后的等待时间（毫秒）
+    },
+    {
+      "Enabled": false,           // VS Code示例（已禁用）
+      "Name": "Visual Studio Code",
+      "ExecutablePath": "C:\\Users\\GM19\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe",
+      "Arguments": "C:\\Users\\GM19\\myfile\\Projects", // 打开指定文件夹
+      "WorkingDirectory": "C:\\Users\\GM19\\myfile\\Projects",
+      "DelayMs": 1000
+    }
+  ]
+}
