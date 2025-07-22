@@ -164,12 +164,12 @@ dotnet publish -c Release
 
 ## 🔧 设置开机自启
 
-### 方法1: Windows任务计划程序（推荐）
+### 方法1: Windows任务计划程序（推荐，已经过验证）
 
 1. 按 `Win + R`，输入 `taskschd.msc` 打开任务计划程序
 2. 点击"创建基本任务"
 3. 输入任务名称："AutoStartHub"
-4. 选择触发器："计算机启动时"
+4. 选择触发器："当前用户登录时"
 5. 选择操作："启动程序"
 6. 程序路径：`<项目路径>\bin\Release\net10.0\win-x64\publish\AutoStartHub.exe`
 7. 起始于：设置为程序所在目录
